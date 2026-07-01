@@ -195,21 +195,14 @@ a:hover { color: var(--terracotta); }
 /* ---------------------------------- hero ------------------------------ */
 .hero {
   position: relative;
-  background: radial-gradient(circle at 15% 20%, var(--magenta) 0%, var(--cochinilla) 48%, var(--wine) 100%);
+  background:
+    linear-gradient(100deg, rgba(36,26,22,0.90) 0%, rgba(74,15,34,0.72) 42%, rgba(163,30,59,0.38) 100%),
+    url('../assets/hero-bg.jpg') center 60% / cover no-repeat;
   color: #fff;
   padding: 90px 0 70px;
   overflow: hidden;
 }
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
-  background-size: 26px 26px;
-  opacity: 0.5;
-  pointer-events: none;
-}
-.hero-inner { position: relative; z-index: 1; max-width: 760px; }
+.hero-inner { position: relative; z-index: 1; max-width: 840px; margin: 0 auto; text-align: center; }
 
 /* animated, mouse-reactive color blobs — homepage hero only */
 .hero-blobs {
@@ -224,13 +217,15 @@ a:hover { color: var(--terracotta); }
   position: absolute;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.55;
+  opacity: 0.45;
+  mix-blend-mode: screen;
   will-change: transform;
 }
 .hero-blob.b1 { width: 360px; height: 360px; background: var(--marigold); top: -80px; left: 6%; animation: drift1 15s ease-in-out infinite; }
 .hero-blob.b2 { width: 300px; height: 300px; background: var(--cobalt); bottom: -100px; right: 10%; animation: drift2 19s ease-in-out infinite; }
 .hero-blob.b3 { width: 240px; height: 240px; background: var(--terracotta); top: 28%; right: 26%; animation: drift3 12s ease-in-out infinite; }
 .hero-blob.b4 { width: 200px; height: 200px; background: var(--marigold); bottom: 8%; left: 32%; animation: drift1 17s ease-in-out infinite reverse; }
+.hero-blob.b5 { width: 280px; height: 280px; background: linear-gradient(135deg, var(--cochinilla), var(--cobalt)); top: -70px; right: -50px; animation: drift3 16s ease-in-out infinite reverse; }
 
 @keyframes drift1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
@@ -248,10 +243,12 @@ a:hover { color: var(--terracotta); }
   .hero-blob { animation: none; }
 }
 
-.hero p.lede { color: rgba(255,255,255,0.88); font-size: 1.15rem; max-width: 620px; }
+.hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+.hero p.lede { color: rgba(255,255,255,0.88); font-size: 1.15rem; max-width: 620px; margin-left: auto; margin-right: auto; }
 .hero .meta-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
   margin: 28px 0 32px;
   font-size: 0.95rem;
@@ -267,7 +264,7 @@ a:hover { color: var(--terracotta); }
   display: inline-block;
   flex-shrink: 0;
 }
-.hero .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 
 .page-hero {
   position: relative;
