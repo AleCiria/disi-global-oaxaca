@@ -290,10 +290,34 @@ a:hover { color: var(--terracotta); }
 .page-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--cochinilla), var(--wine));
+  background: var(--wine);
   color: #fff;
   padding: 64px 0 50px;
 }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(120deg, rgba(36,26,22,0.90) 0%, rgba(74,15,34,0.76) 48%, rgba(163,30,59,0.42) 100%);
+  pointer-events: none;
+}
+.page-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.page-hero-image-layer {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/analuisa-gamboa-DISI.jpg') center 60% / cover no-repeat;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 1.2s ease;
+}
+.page-hero-image-layer.is-visible { opacity: 1; }
+.page-hero .container { position: relative; z-index: 2; }
 .page-hero .eyebrow { color: var(--marigold); }
 .page-hero .eyebrow::before { background: var(--marigold); }
 .page-hero p { color: rgba(255,255,255,0.85); max-width: 680px; }

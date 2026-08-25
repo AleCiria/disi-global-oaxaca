@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return nextIndex;
   }
 
-  if (hero && heroLayers.length >= 2 && heroImages.length) {
+  function setupRotatingHero(layers) {
+    if (layers.length < 2 || !heroImages.length) return;
     var activeLayer = 0;
     var imageIndex = Math.floor(Math.random() * heroImages.length);
 
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         imageIndex = 0;
         src = heroImages[imageIndex];
       }
-      heroLayers[activeLayer].style.backgroundImage = 'url("' + src + '")';
+      layers[activeLayer].style.backgroundImage = 'url("' + src + '")';
     });
 
     if (!reduceMotion && heroImages.length > 1) {
@@ -75,15 +76,35 @@ document.addEventListener('DOMContentLoaded', function () {
         preloadImage(heroImages[nextIndex], function (loaded, src) {
           if (!loaded) return;
           var nextLayer = activeLayer === 0 ? 1 : 0;
-          heroLayers[nextLayer].style.backgroundImage = 'url("' + src + '")';
-          heroLayers[nextLayer].classList.add('is-visible');
-          heroLayers[activeLayer].classList.remove('is-visible');
+          layers[nextLayer].style.backgroundImage = 'url("' + src + '")';
+          layers[nextLayer].classList.add('is-visible');
+          layers[activeLayer].classList.remove('is-visible');
           activeLayer = nextLayer;
           imageIndex = nextIndex;
         });
       }, 9000);
     }
   }
+
+  if (hero && heroLayers.length >= 2 && heroImages.length) {
+    setupRotatingHero(heroLayers);
+  }
+
+  document.querySelectorAll('.page-hero').forEach(function (pageHero) {
+    var media = document.createElement('div');
+    var firstLayer = document.createElement('span');
+    var secondLayer = document.createElement('span');
+
+    media.className = 'page-hero-media';
+    media.setAttribute('aria-hidden', 'true');
+    firstLayer.className = 'page-hero-image-layer is-visible';
+    secondLayer.className = 'page-hero-image-layer';
+    media.appendChild(firstLayer);
+    media.appendChild(secondLayer);
+    pageHero.insertBefore(media, pageHero.firstChild);
+
+    setupRotatingHero([firstLayer, secondLayer]);
+  });
 
   if (hero && blobs && !reduceMotion) {
     hero.addEventListener('mousemove', function (e) {
