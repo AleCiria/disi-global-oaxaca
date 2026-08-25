@@ -425,7 +425,18 @@ ul.checklist li::before {
   border-radius: var(--radius);
   padding: 26px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 18px;
+}
+.profile-card h3 { margin-bottom: 0.3em; }
 .profile-avatar {
   width: 64px; height: 64px;
   border-radius: 50%;
@@ -443,8 +454,31 @@ ul.checklist li::before {
   color: var(--terracotta);
   font-weight: 600;
   font-size: 0.85rem;
-  margin-bottom: 10px;
+  line-height: 1.45;
+  margin-bottom: 14px;
   display: block;
+}
+.profile-card p {
+  font-size: 0.92rem;
+  margin-bottom: 0.9em;
+}
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--cream);
 }
 
 /* ---------------------------------- empty state ------------------------------ */
