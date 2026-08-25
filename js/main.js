@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var heroImages = [
     'assets/analuisa-gamboa-DISI.jpg',
-    'assets/sergi_ferrete_Oaxaca.avif',
     'assets/seema-miah-Oaxaca.jpg',
     'assets/anastasiia-malai-Oaxaca.jpg',
     'assets/Oaxaca_1.JPG',
