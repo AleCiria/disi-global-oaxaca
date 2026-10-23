@@ -153,6 +153,26 @@ a:hover { color: var(--terracotta); }
 }
 .site-nav a.nav-cta:hover { background: var(--terracotta); color: #fff; }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  margin-right: 18px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font: 700 0.72rem/1 var(--font-body);
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.language-switch:hover { border-color: var(--cochinilla); }
+.language-switch span[data-lang] { opacity: 0.45; }
+.language-switch span[data-lang].is-active { color: var(--cochinilla-dark); opacity: 1; }
+.language-divider { color: var(--line); }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -641,15 +661,7 @@ ul.checklist li::before {
 }
 
 /* ---------------------------------- responsive ------------------------------ */
-@media (max-width: 900px) {
-  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-  .two-col { grid-template-columns: 1fr; gap: 30px; }
-  .facts-strip { grid-template-columns: repeat(2, 1fr); }
-  .facts-strip .fact:nth-child(2) { border-right: none; }
-}
-
-@media (max-width: 720px) {
+@media (max-width: 1040px) {
   .nav-toggle { display: flex; }
   .site-nav {
     position: absolute;
@@ -664,6 +676,19 @@ ul.checklist li::before {
   }
   .site-nav.open { display: flex; }
   .site-nav a.nav-cta { margin-top: 6px; }
+}
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .two-col { grid-template-columns: 1fr; gap: 30px; }
+  .facts-strip { grid-template-columns: repeat(2, 1fr); }
+  .facts-strip .fact:nth-child(2) { border-right: none; }
+}
+
+@media (max-width: 720px) {
+  .brand-mark { font-size: 1.25rem; }
+  .language-switch { margin-left: auto; margin-right: 6px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .facts-strip { grid-template-columns: 1fr; }
   .facts-strip .fact { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
