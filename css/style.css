@@ -484,6 +484,8 @@ ul.checklist li::before {
   box-shadow: 0 8px 24px -18px rgba(36,26,22,0.7);
 }
 .profile-photo-portrait { object-position: center 28%; }
+.profile-photo-mariana { object-position: 78% center; }
+.organizer-grid .profile-card { height: 100%; }
 .profile-card h3 { margin-bottom: 0.3em; }
 .profile-avatar {
   width: 64px; height: 64px;
