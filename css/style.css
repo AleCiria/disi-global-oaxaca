@@ -131,10 +131,10 @@ a:hover { color: var(--terracotta); }
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 14px;
 }
 .site-nav a {
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: var(--charcoal);
   text-decoration: none;
@@ -368,6 +368,14 @@ section { padding: 70px 0; }
 }
 .card:hover { transform: translateY(-3px); }
 .card h3 { margin-bottom: 0.4em; }
+.card-wide {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.card-wide p { margin-bottom: 0; }
+.card-wide .card-icon { flex: 0 0 auto; margin-bottom: 0; }
 .card .card-icon {
   width: 42px; height: 42px;
   border-radius: 10px;
@@ -663,7 +671,7 @@ ul.checklist li::before {
 }
 
 /* ---------------------------------- responsive ------------------------------ */
-@media (max-width: 1040px) {
+@media (max-width: 1180px) {
   .nav-toggle { display: flex; }
   .site-nav {
     position: absolute;
@@ -692,6 +700,8 @@ ul.checklist li::before {
   .brand-mark { font-size: 1.25rem; }
   .language-switch { margin-left: auto; margin-right: 6px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .card-wide { display: block; }
+  .card-wide .card-icon { margin-bottom: 16px; }
   .facts-strip { grid-template-columns: 1fr; }
   .facts-strip .fact { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
   .footer-logo-link { width: 100%; justify-content: center; }
